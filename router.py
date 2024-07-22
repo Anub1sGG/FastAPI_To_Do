@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, List
 
 from fastapi import APIRouter, Depends
 
@@ -12,9 +12,9 @@ router = APIRouter(
 
 
 @router.post("")
-async def add_task(
-        task: Annotated[STaskAdd, Depends()]
-)-> STaskId:
+async def add_tusk(
+        task: Annotated[STaskAdd, Depends()],
+) -> STaskId:
     task_id = await TaskRepository.add_one(task)
     return {"ok": True, "task_id": task_id}
 

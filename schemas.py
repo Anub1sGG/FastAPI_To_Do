@@ -11,6 +11,10 @@ class STaskAdd(BaseModel):
 class STask(STaskAdd):
     id: int
 
+    class Config:
+        orm_mode = True
+        from_attributes = True
+
 
 class STaskId(BaseModel):
     ok: bool = True
